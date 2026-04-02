@@ -82,3 +82,11 @@ function createTask(taskText) {
     // show "Task added!" message
     showMessage();
 }
+
+// add task on Enter key
+taskInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        addTaskBtn.click();
+    }
+});
+
