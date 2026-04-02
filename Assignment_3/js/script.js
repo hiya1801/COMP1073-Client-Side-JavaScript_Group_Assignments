@@ -60,7 +60,7 @@ function createTask(taskText) {
             li.classList.remove('completed'); // uncheck
         }
     });
-    
+
     // Delete Button Event
     delBtn.addEventListener('click', () => {
         deleteSound.currentTime = 0;
@@ -82,6 +82,16 @@ function createTask(taskText) {
     // show "Task added!" message
     showMessage();
 }
+
+// add task button click
+addTaskBtn.addEventListener('click', () => {
+    const taskText = taskInput.value.trim();
+    if (taskText !== '') {
+        createTask(taskText);
+        taskInput.value = '';
+        taskInput.focus();
+    }
+});
 
 // add task on Enter key
 taskInput.addEventListener('keypress', (e) => {
