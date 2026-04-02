@@ -15,3 +15,12 @@ function updateCounter() {
     taskCounter.textContent = `Total Tasks: ${tasks.length}`;
 }
 
+// function: Show temporary "Task added!" message
+function showMessage() {
+    message.classList.remove('hidden');
+    message.classList.add('show');
+    setTimeout(() => {
+        message.classList.remove('show');
+        message.classList.add('hidden');
+    }, 1000);
+}
