@@ -1,0 +1,81 @@
+# Assignment 3 – To-Do List Application
+
+## Course
+COMP1073 – Client-Side JavaScript  
+## Group Details
+**Group Number:** Group 3
+
+### Members:
+- Hiyaben Hareshbhai Jayswal
+- Abiskar Chhetri
+
+
+## Description
+
+This project is a web-based To-Do List application built using HTML, CSS, and JavaScript.
+
+The application allows users to:
+- Add tasks
+- Mark tasks as complete
+- Delete tasks
+- Interact with a dynamic and user-friendly interface
+
+
+## Work Distribution
+### Hiyaben Hareshbhai Jayswal (JavaScript)
+- Implemented:
+  - Add task
+  - Delete task
+  - Checkbox functionality
+  - Move completed tasks to bottom
+  - Task counter
+- Added:
+  - Ding sound on completion
+  - Delete sound
+  - Pre-filled demo tasks
+  - Enter key support
+- Handled all JavaScript logic and DOM manipulation
+
+### Abiskar Chhetri (Frontend & Design)
+- Created HTML structure (index.html)
+- Designed CSS styling (style.css)
+- Implemented:
+  - Layout and spacing
+  - Button styling and hover effects
+  - Task list UI design
+  - Animations (fade, hover glow)
+- Added:
+  - Checklist image
+  - “Task added!” message UI
+  - Responsive design
+
+
+## Features
+### Core Features
+- Add tasks dynamically
+- Each task includes:
+  - Checkbox
+  - Task text
+  - Delete button
+- Mark tasks complete (line-through effect)
+- Move completed tasks to bottom
+- Delete tasks
+
+### Additional Features
+- Sound effects (ding + delete)
+- Smooth animations (fade, hover effects)
+- “Task added!” pop-up message
+- Task counter
+- Enter key support
+- Pre-filled demo tasks
+- Checklist image
+
+
+## 🛠️ Technologies Used
+- HTML5
+- CSS3 (Flexbox, transitions, animations)
+- JavaScript (DOM manipulation, events, arrays)
+
+## 🎯 Conclusion
+
+This To-Do List application demonstrates strong understanding of client-side JavaScript, DOM manipulation, and UI design while meeting all technical and creative requirements.
