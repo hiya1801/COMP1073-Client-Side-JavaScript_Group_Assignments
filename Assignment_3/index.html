@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hiya's To-Do List</title>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header with Checklist Image -->
     <h1>
         <img src="assets/checklist.png" alt="Checklist" width="50">
         AH Creative To-Do List ✅
@@ -24,5 +26,14 @@
     <!-- Task List -->
     <ul id="taskList"></ul>
 
+    <!-- Pop-up message -->
+    <div id="message" class="hidden">Task added!</div>
+
+    <!-- Audio for task completion and deletion -->
+    <audio id="dingSound" src="assets/ding.mp3"></audio>
+    <audio id="deleteSound" src="assets/delete.mp3"></audio>
+
+    <!-- Link JS -->
+    <script src="js/script.js"></script>
 </body>
 </html>
