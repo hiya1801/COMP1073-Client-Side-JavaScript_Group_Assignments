@@ -90,3 +90,6 @@ taskInput.addEventListener('keypress', (e) => {
     }
 });
 
+// Pre-fill demo tasks on page load
+const demoTasks = ["Buy groceries", "Complete Assignment 3", "Call Mom", "Exercise 30 min", "Read a book"];
+demoTasks.forEach(task => createTask(task));
