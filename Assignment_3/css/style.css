@@ -34,6 +34,12 @@ input[type="text"] {
     border-radius: 5px;
     border: 1px solid #ccc;
     width: 250px;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #1e90ff;
+    outline: none;
 }
 
 button {
@@ -43,9 +49,14 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Task List Base */
+button:hover {
+    background: #63b3ed;
+}
+
+/* Task List Styling */
 ul {
     list-style-type: none;
     padding: 0;
@@ -60,4 +71,73 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: all 0.5s ease;
+    box-shadow: 1px 2px 5px #ccc;
+}
+
+/* Completed tasks */
+li.completed {
+    text-decoration: line-through;
+    color: green;
+    opacity: 0.6;
+}
+
+/* Delete animation */
+li.deleting {
+    background: #ff4c4c;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+/* Task text & delete button */
+.task-text {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.delete-btn {
+    background: #ff4c4c;
+    border: none;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background: #ff1a1a;
+}
+
+/* Hover glow effect */
+li:hover {
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+    transform: scale(1.02);
+}
+
+/* Task counter */
+#taskCounter {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Pop-up message */
+#message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #1e90ff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px #999;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+#message.show {
+    opacity: 1;
+}
+.hidden {
+    display: none;
 }
