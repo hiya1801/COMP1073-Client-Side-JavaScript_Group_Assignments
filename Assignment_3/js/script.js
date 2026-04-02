@@ -60,5 +60,25 @@ function createTask(taskText) {
             li.classList.remove('completed'); // uncheck
         }
     });
-
     
+    // Delete Button Event
+    delBtn.addEventListener('click', () => {
+        deleteSound.currentTime = 0;
+        deleteSound.play();                 // play delete sound
+        li.classList.add('deleting');       // Fade out
+        setTimeout(() => {
+            taskList.removeChild(li);       // remove from list
+            tasks = tasks.filter(t => t !== taskText); // remove from array
+            updateCounter();                // update counter
+        }, 500);
+    });
+
+    // save task in array
+    tasks.push(taskText);
+
+    // update counter
+    updateCounter();
+
+    // show "Task added!" message
+    showMessage();
+}
