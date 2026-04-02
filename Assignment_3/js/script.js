@@ -24,3 +24,41 @@ function showMessage() {
         message.classList.add('hidden');
     }, 1000);
 }
+
+// function: Create a New Task
+function createTask(taskText) {
+    const li = document.createElement('li');
+
+    // Checkbox
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+
+    // Task text
+    const span = document.createElement('span');
+    span.className = 'task-text';
+    span.textContent = taskText;
+
+    // Delete button
+    const delBtn = document.createElement('button');
+    delBtn.textContent = 'Delete';
+    delBtn.className = 'delete-btn';
+
+    // Append elements to li
+    li.appendChild(checkbox);
+    li.appendChild(span);
+    li.appendChild(delBtn);
+    taskList.appendChild(li);
+
+    // Checkbox Event: Complete Task
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+            li.classList.add('completed');   // cross out
+            taskList.appendChild(li);        // move to bottom
+            dingSound.currentTime = 0;
+            dingSound.play();                // play ding sound
+        } else {
+            li.classList.remove('completed'); // uncheck
+        }
+    });
+
+    
