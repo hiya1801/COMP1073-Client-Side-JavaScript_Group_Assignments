@@ -6,3 +6,12 @@ const taskCounter = document.getElementById('taskCounter');   // Task counter
 const dingSound = document.getElementById('dingSound');       // Ding sound
 const deleteSound = document.getElementById('deleteSound');   // Delete sound
 const message = document.getElementById('message');           // "Task added!" message
+
+// array to store tasks
+let tasks = [];
+
+// function: Update Task Counter
+function updateCounter() {
+    taskCounter.textContent = `Total Tasks: ${tasks.length}`;
+}
+
