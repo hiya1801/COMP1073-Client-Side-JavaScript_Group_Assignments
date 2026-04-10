@@ -22,6 +22,23 @@ cityInput.addEventListener("keypress", function (event) {
 });
 
 // Main function that runs when user searches a city
-function getData() {
-  console.log(cityInput.value);
+async function getData() {
+  const city = cityInput.value.trim();
+
+  // Check if input is empty
+  if (!city) {
+    showMessage("Please enter a city name.", "red");
+    return;
+  }
+
+  // Show loading message and hide previous results
+  showMessage("Loading data...", "#1d4ed8");
+  weatherCard.classList.add("hidden");
+  countryCard.classList.add("hidden");
+}
+
+// Function to display messages to the user
+function showMessage(text, color) {
+  message.textContent = text;
+  message.style.color = color;
 }
