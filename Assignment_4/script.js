@@ -11,3 +11,17 @@ const countryCard = document.getElementById("countryCard");
 
 const weatherContent = document.getElementById("weatherContent");
 const countryContent = document.getElementById("countryContent");
+
+// Event listeners for button click and Enter key press
+searchBtn.addEventListener("click", getData);
+
+cityInput.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    getData();
+  }
+});
+
+// Main function that runs when user searches a city
+function getData() {
+  console.log(cityInput.value);
+}
