@@ -35,6 +35,28 @@ async function getData() {
   showMessage("Loading data...", "#1d4ed8");
   weatherCard.classList.add("hidden");
   countryCard.classList.add("hidden");
+
+  try {
+    // Build the weather API URL using user input
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+      city
+    )}&appid=${apiKey}&units=metric`;
+
+    // Fetch weather data from OpenWeather
+    const weatherResponse = await fetch(weatherUrl);
+    const weatherData = await weatherResponse.json();
+
+    // If city is not found, show error
+    if (!weatherResponse.ok) {
+      showMessage("City not found. Please try again.", "red");
+      return;
+    }
+
+    console.log(weatherData);
+  } catch (error) {
+    showMessage("Something went wrong. Please try again later.", "red");
+    console.error("Error:", error);
+  }
 }
 
 // Function to display messages to the user
