@@ -52,11 +52,36 @@ async function getData() {
       return;
     }
 
-    console.log(weatherData);
+    // Display weather information on the page
+    displayWeather(weatherData);
   } catch (error) {
     showMessage("Something went wrong. Please try again later.", "red");
     console.error("Error:", error);
   }
+}
+
+// Function to display weather data
+function displayWeather(data) {
+  const iconCode = data.weather[0].icon;
+
+  // Build weather icon URL
+  const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+  // Insert weather details into HTML
+  weatherContent.innerHTML = `
+    <p><strong>City:</strong> ${data.name}</p>
+    <p><strong>Country Code:</strong> ${data.sys.country}</p>
+    <p><strong>Temperature:</strong> ${data.main.temp}°C</p>
+    <p><strong>Feels Like:</strong> ${data.main.feels_like}°C</p>
+    <p><strong>Weather:</strong> ${data.weather[0].description}</p>
+    <p><strong>Humidity:</strong> ${data.main.humidity}%</p>
+    <p><strong>Wind Speed:</strong> ${data.wind.speed} m/s</p>
+    <p><strong>Coordinates:</strong> ${data.coord.lat}, ${data.coord.lon}</p>
+    <img src="${iconUrl}" alt="Weather icon" class="weather-icon">
+  `;
+
+  // Show weather card
+  weatherCard.classList.remove("hidden");
 }
 
 // Function to display messages to the user
