@@ -90,7 +90,7 @@ function displayWeather(data) {
     <p><strong>Country Code:</strong> ${data.sys.country}</p>
     <p><strong>Temperature:</strong> ${data.main.temp}°C</p>
     <p><strong>Feels Like:</strong> ${data.main.feels_like}°C</p>
-    <p><strong>Weather:</strong> ${data.weather[0].description}</p>
+    <p><strong>Weather:</strong> ${capitalizeWords(data.weather[0].description)}</p>
     <p><strong>Humidity:</strong> ${data.main.humidity}%</p>
     <p><strong>Wind Speed:</strong> ${data.wind.speed} m/s</p>
     <p><strong>Coordinates:</strong> ${data.coord.lat}, ${data.coord.lon}</p>
@@ -135,4 +135,9 @@ function displayCountry(country) {
 function showMessage(text, color) {
   message.textContent = text;
   message.style.color = color;
+}
+
+// Helper function to capitalize words (for weather description)
+function capitalizeWords(text) {
+  return text.replace(/\b\w/g, char => char.toUpperCase());
 }
