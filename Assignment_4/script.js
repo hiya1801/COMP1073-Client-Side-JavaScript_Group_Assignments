@@ -54,6 +54,18 @@ async function getData() {
 
     // Display weather information on the page
     displayWeather(weatherData);
+
+    // Get country code from weather data (e.g., CA, US)
+    const countryCode = weatherData.sys.country;
+
+    // Build URL for REST Countries API
+    const countryUrl = `https://restcountries.com/v3.1/alpha/${countryCode}`;
+
+    // Fetch country details
+    const countryResponse = await fetch(countryUrl);
+    const countryData = await countryResponse.json();
+
+    console.log(countryData[0]);
   } catch (error) {
     showMessage("Something went wrong. Please try again later.", "red");
     console.error("Error:", error);
