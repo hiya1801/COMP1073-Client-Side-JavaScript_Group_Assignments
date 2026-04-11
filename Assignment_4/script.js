@@ -103,12 +103,27 @@ function displayWeather(data) {
 
 // Function to display country data
 function displayCountry(country) {
+  // Convert languages object into readable text
+  const languages = country.languages
+    ? Object.values(country.languages).join(", ")
+    : "N/A";
+
+  // Convert currencies object into readable text
+  const currencies = country.currencies
+    ? Object.values(country.currencies)
+        .map(currency => `${currency.name} (${currency.symbol || "N/A"})`)
+        .join(", ")
+    : "N/A";
+
+  // Insert country details into HTML
   countryContent.innerHTML = `
     <p><strong>Name:</strong> ${country.name.common}</p>
     <p><strong>Official Name:</strong> ${country.name.official}</p>
     <p><strong>Capital:</strong> ${country.capital ? country.capital[0] : "N/A"}</p>
     <p><strong>Region:</strong> ${country.region}</p>
     <p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
+    <p><strong>Languages:</strong> ${languages}</p>
+    <p><strong>Currencies:</strong> ${currencies}</p>
     <img src="${country.flags.png}" alt="Flag of ${country.name.common}" class="flag">
   `;
 
