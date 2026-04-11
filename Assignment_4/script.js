@@ -65,8 +65,13 @@ async function getData() {
     const countryResponse = await fetch(countryUrl);
     const countryData = await countryResponse.json();
 
-    console.log(countryData[0]);
+    // Display country information
+    displayCountry(countryData[0]);
+
+    // Success message
+    showMessage("Data loaded successfully.", "green");
   } catch (error) {
+    // Handle unexpected errors (network issues, etc.)
     showMessage("Something went wrong. Please try again later.", "red");
     console.error("Error:", error);
   }
@@ -94,6 +99,21 @@ function displayWeather(data) {
 
   // Show weather card
   weatherCard.classList.remove("hidden");
+}
+
+// Function to display country data
+function displayCountry(country) {
+  countryContent.innerHTML = `
+    <p><strong>Name:</strong> ${country.name.common}</p>
+    <p><strong>Official Name:</strong> ${country.name.official}</p>
+    <p><strong>Capital:</strong> ${country.capital ? country.capital[0] : "N/A"}</p>
+    <p><strong>Region:</strong> ${country.region}</p>
+    <p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
+    <img src="${country.flags.png}" alt="Flag of ${country.name.common}" class="flag">
+  `;
+
+  // Show country card
+  countryCard.classList.remove("hidden");
 }
 
 // Function to display messages to the user
